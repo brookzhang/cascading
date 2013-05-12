@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     @user = User.new
     
     @cities = City.all
-    @areas = Area.where(:city_id => 1)
-    @neighborhoods = Neighborhood.where(:area_id => 1)
+    @areas = []
+    @neighborhoods = []
     
   end
 
