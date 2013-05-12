@@ -1,0 +1,42 @@
+<script>
+$(document).ready(function() {
+$('#cities_select').change(function() {
+  $.ajax({
+    url: "<%= update_areas_users_path %>",
+    data: {
+      city_id : $('#cities_select').val()
+    },
+    dataType: "script"
+  });
+});
+
+$('#areas_select').change(function() {
+  $.ajax({
+    url: "<%= update_neighborhoods_users_path(@user) %>",
+    data: {
+      area_id : $('#areas_select').val()
+    },
+    dataType: "script"
+  });
+});
+
+});
+</script>
+
+
+
+<%= form_for @user do |f| %>
+  <p>name: <%= f.text_field :name %> </p>
+
+  <p>City:</p>
+    <%= f.collection_select(:city_id,  @cities,  :id, :name, {:prompt   => "Select a City"}, {:id => 'cities_select'}) %>
+
+    <p>City area:</p>
+    <%= f.collection_select(:area_id, @areas, :id, :name, {:prompt   => "Select an Area"}, {:id => 'areas_select'}) %>
+
+    <p>Neighborhood:</p>
+    <%= f.collection_select(:neighborhood_id, @neighborhoods, :id, :name, {:prompt   => "Select a Neighborhood"}, {:id => 'neighborhoods_select'}) %>
+  
+<%end%>
+
+    

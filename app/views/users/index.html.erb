@@ -1,0 +1,7 @@
+<h1>Users#index</h1>
+<% @users.each  do |u| %>
+  <p>name: u.name</p>
+<%end%>
+
+<%= link_to 'new', new_user_path %>
+
