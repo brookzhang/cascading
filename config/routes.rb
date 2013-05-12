@@ -8,7 +8,7 @@ Cascading::Application.routes.draw do
     end
   end
   
-  root :to => 'users#index'
+  root :to => 'users#new'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
